@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjosephi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 12:29:56 by jjosephi          #+#    #+#              #
-#    Updated: 2019/09/17 15:14:38 by jjosephi         ###   ########.fr        #
+#    Updated: 2019/09/18 17:26:06 by jjosephi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,10 @@ FLAGS = -Wall -Wextra -Werror
 FILES = ft_memset.c libft.h
 
 $(NAME) :
-	gcc -c $(FLAGS) $(FILES)
+	gcc -c $(FLAGS) *.c
 	ar rc libft.a *.o
+
+all : re
 
 compile :
 	gcc $(FLAGS) *.c
