@@ -6,13 +6,13 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:46:59 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/18 16:48:11 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/09/18 17:37:09 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isprint(int c)
 {
-	if(c >= '!' && c <= '~')
-		return(1);
-	return(0);
+	if (c >= '!' && c <= '~')
+		return (1);
+	return (0);
 }
