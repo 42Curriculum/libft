@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:54:49 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/19 20:03:01 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/09/21 08:30:32 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/09/21 16:50:17 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t	i;
-	size_t	n;
-
-	i = 0;
-	if (ft_strlen(find) == 0)
-		return ((char *)str);
-	while (i <= len)
-	{
-		n = 0;
-		while (find[n] == str[i + n] && (i + n) <= len)
-		{
-			if (find[n + 1] == '\0')
-			{
-				return ((char *)str + i);
-			}
-			n++;
-		}
-		i++;
-	}
-	return (NULL);
+	del((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
+	return ;
 }

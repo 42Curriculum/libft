@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:54:49 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/19 20:03:01 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/09/20 14:19:14 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/09/21 21:09:13 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+void	ft_putnbr(int nb)
 {
-	size_t	i;
-	size_t	n;
-
-	i = 0;
-	if (ft_strlen(find) == 0)
-		return ((char *)str);
-	while (i <= len)
+	if (nb == -2147483648)
 	{
-		n = 0;
-		while (find[n] == str[i + n] && (i + n) <= len)
-		{
-			if (find[n + 1] == '\0')
-			{
-				return ((char *)str + i);
-			}
-			n++;
-		}
-		i++;
+		ft_putstr("-2147483648");
+		return ;
 	}
-	return (NULL);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = nb * -1;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar((nb % 10) + '0');
+	return ;
 }

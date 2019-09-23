@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:54:49 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/19 20:03:01 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/09/19 21:09:05 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/09/21 11:13:48 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	size_t	i;
-	size_t	n;
+	int i;
 
 	i = 0;
-	if (ft_strlen(find) == 0)
-		return ((char *)str);
-	while (i <= len)
+	while (s[i])
 	{
-		n = 0;
-		while (find[n] == str[i + n] && (i + n) <= len)
-		{
-			if (find[n + 1] == '\0')
-			{
-				return ((char *)str + i);
-			}
-			n++;
-		}
+		f(&s[i]);
 		i++;
 	}
-	return (NULL);
+	return ;
 }

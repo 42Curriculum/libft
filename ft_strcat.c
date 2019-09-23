@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 10:22:20 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/18 10:59:12 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/09/19 10:48:10 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ char	*ft_strcat(char *dest, const char *src)
 		i++;
 		len++;
 	}
+	dest[len] = '\0';
 	return (dest);
 }

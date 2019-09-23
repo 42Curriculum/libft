@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:54:49 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/19 20:03:01 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/09/21 07:49:19 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/09/21 12:10:21 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	n;
+	unsigned int	i;
+	char			*str;
 
 	i = 0;
-	if (ft_strlen(find) == 0)
-		return ((char *)str);
-	while (i <= len)
+	str = (char *)malloc(ft_strlen(s) + 1);
+	while (s[i])
 	{
-		n = 0;
-		while (find[n] == str[i + n] && (i + n) <= len)
-		{
-			if (find[n + 1] == '\0')
-			{
-				return ((char *)str + i);
-			}
-			n++;
-		}
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	return (NULL);
+	return (str);
 }

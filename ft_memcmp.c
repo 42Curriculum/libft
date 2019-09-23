@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:54:49 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/19 20:03:01 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/09/19 19:03:29 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/09/19 19:18:53 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+int		ft_memcmp(const void *str, const void *str2, size_t n)
 {
-	size_t	i;
-	size_t	n;
+	size_t			i;
+	unsigned char	*nstr;
+	unsigned char	*nstr2;
 
+	nstr = (unsigned char *)str;
+	nstr2 = (unsigned char *)str2;
 	i = 0;
-	if (ft_strlen(find) == 0)
-		return ((char *)str);
-	while (i <= len)
+	while (n > 0 && nstr[i] == nstr2[i])
 	{
-		n = 0;
-		while (find[n] == str[i + n] && (i + n) <= len)
-		{
-			if (find[n + 1] == '\0')
-			{
-				return ((char *)str + i);
-			}
-			n++;
-		}
+		n--;
 		i++;
 	}
-	return (NULL);
+	if (n == 0)
+		return (0);
+	return (nstr[i] - nstr2[i]);
 }

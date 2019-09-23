@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 12:37:09 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/23 13:19:45 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/09/21 08:16:42 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/09/22 17:39:52 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-void	*ft_memset(void *arg, int i, size_t len)
+t_list	*ft_lstnew(void	const *content, size_t content_size)
 {
-	size_t			n;
-	unsigned char	*car;
+	t_list	*elem;
 
-	if (arg == NULL)
+	if (!(elem = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
-	car = (unsigned char *)arg;
-	n = 0;
-	while (n < len)
+	if (content == NULL)
 	{
-		car[n] = i;
-		n++;
+		elem->content = NULL;
+		elem->content_size = 0;
 	}
-	return (arg);
+	else
+	{
+		if (!(elem->content = (void *)malloc(sizeof(content_size))))
+			return (NULL);
+		ft_memcpy(elem->content, content, content_size);
+		elem->content_size = content_size;
+	}
+	elem->next = NULL;
+	return (elem);
 }

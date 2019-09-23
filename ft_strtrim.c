@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 12:37:09 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/23 13:19:45 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/09/20 07:57:10 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/09/21 22:05:35 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-void	*ft_memset(void *arg, int i, size_t len)
+char	*ft_strtrim(char const *s)
 {
-	size_t			n;
-	unsigned char	*car;
+	int		i;
+	int		len;
+	char	*str;
 
-	if (arg == NULL)
+	if (s == NULL)
 		return (NULL);
-	car = (unsigned char *)arg;
-	n = 0;
-	while (n < len)
-	{
-		car[n] = i;
-		n++;
-	}
-	return (arg);
+	len = ft_strlen(s);
+	while (s[len - 1] == ' ' || s[len - 1] == '\t' || s[len - 1] == '\n')
+		len--;
+	i = -1;
+	while (s[++i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		len--;
+	if (len <= 0)
+		len = 0;
+	str = (char*)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (NULL);
+	s += i;
+	i = -1;
+	while (++i < len)
+		str[i] = *s++;
+	str[i] = '\0';
+	return (str);
 }

@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:54:49 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/19 20:03:01 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/09/21 08:45:59 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/09/21 18:25:28 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+void	ft_lstdel(t_list **aslt, void (*del)(void *, size_t))
 {
-	size_t	i;
-	size_t	n;
+	t_list *temp;
+	t_list *next;
 
-	i = 0;
-	if (ft_strlen(find) == 0)
-		return ((char *)str);
-	while (i <= len)
+	if (*aslt == NULL)
+		return ;
+	temp = *aslt;
+	while (temp)
 	{
-		n = 0;
-		while (find[n] == str[i + n] && (i + n) <= len)
-		{
-			if (find[n + 1] == '\0')
-			{
-				return ((char *)str + i);
-			}
-			n++;
-		}
-		i++;
+		next = temp->next;
+		del(temp->content, temp->content_size);
+		free(temp);
+		temp = next;
 	}
-	return (NULL);
+	*aslt = NULL;
+	return ;
 }

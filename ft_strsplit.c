@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:54:49 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/19 20:03:01 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/09/20 09:51:09 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/09/23 13:30:02 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+char	**ft_strsplit(const char *s, char c)
 {
-	size_t	i;
-	size_t	n;
+	char	**str;
+	int		i;
+	int		count;
 
 	i = 0;
-	if (ft_strlen(find) == 0)
-		return ((char *)str);
-	while (i <= len)
+	if (!(str = (char **)malloc((ft_ctwords((char *)s, c) + 1) * sizeof(*str))))
+		return (NULL);
+	while (*s)
 	{
-		n = 0;
-		while (find[n] == str[i + n] && (i + n) <= len)
+		count = 0;
+		while (*s != c && *s)
 		{
-			if (find[n + 1] == '\0')
-			{
-				return ((char *)str + i);
-			}
-			n++;
+			s++;
+			count++;
 		}
-		i++;
+		if (count > 0)
+		{
+			str[i] = ft_strnew(count);
+			str[i++] = ft_strsub(s - count, 0, count);
+		}
+		while (*s == c && *s)
+			s++;
 	}
-	return (NULL);
+	str[i] = NULL;
+	return (str);
 }
