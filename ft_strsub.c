@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 21:37:00 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/26 16:39:28 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/09/26 16:41:05 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		start++;
 		i++;
 	}
-	str[i] = '\0';
+	str[i + 1] = '\0';
 	return (str);
 }
