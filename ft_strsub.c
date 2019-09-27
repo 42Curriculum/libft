@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 21:37:00 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/26 17:07:38 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/09/26 17:09:38 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,17 @@
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
+	size_t	i;
 
-	if (!(ft_strnew(str)))
+	i = 0;
+	if (!(str = malloc(len) + 1))
 		return (NULL);
-	ft_strncpy(str, s + start, len);
+	while (i <= len && s[start] != '\0')
+	{
+		str[i] = s[start];
+		start++;
+		i++;
+	}
+	str[i + 1] = '\0';
 	return (str);
 }
