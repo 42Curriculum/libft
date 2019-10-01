@@ -6,14 +6,18 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 21:09:05 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/21 11:13:48 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/01 11:41:45 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_striter(char *s, void (*f)(char *))
 {
 	int i;
 
+	if (s == NULL)
+		return ;
 	i = 0;
 	while (s[i])
 	{

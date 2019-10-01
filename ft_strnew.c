@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 20:42:24 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/23 13:18:12 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/01 10:29:49 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ char	*ft_strnew(size_t size)
 	i = 0;
 	if (!(str = (char *)malloc((size + 1) * sizeof(*str))))
 		return (NULL);
-	ft_memset(str, '\0', size);
+	ft_memset(str, '\0', size + 1);
 	return (str);
 }

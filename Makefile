@@ -6,18 +6,18 @@
 #    By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 12:29:56 by jjosephi          #+#    #+#              #
-#    Updated: 2019/09/18 18:06:13 by jjosephi         ###   ########.fr        #
+#    Updated: 2019/10/01 11:14:50 by jjosephi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
 
 $(NAME) :
 	gcc -c $(FLAGS) *.c libft.h
 	ar rc libft.a *.o
 
-all : re
+all : $(NAME)
 
 compile :
 	gcc $(FLAGS) *.c

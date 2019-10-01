@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 21:05:39 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/19 21:08:23 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/01 12:07:25 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_strdel(char **as)
 {
+	if (*as == NULL)
+		return ;
 	free(*as);
 	*as = NULL;
 	return ;
