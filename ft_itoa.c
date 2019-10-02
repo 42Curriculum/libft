@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 14:07:09 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/10/01 10:23:00 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/01 17:07:31 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char			*ft_itoa(int nbr)
 		n = (unsigned int)nbr;
 	size = (unsigned int)ft_intsize(n);
 	i = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1))))
+	if (!(str = (char*)malloc(sizeof(char) * (size) + 1)))
 		return (0);
 	if (nbr < 0 && (str[i] = '-'))
 		size++;

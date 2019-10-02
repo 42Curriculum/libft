@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 14:54:49 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/10/01 11:00:03 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/01 15:42:19 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *str, const char *find, size_t len)
 	i = 0;
 	if (ft_strlen(find) == 0)
 		return ((char *)str);
-	while (i < len)
+	while (str[i] && i < len)
 	{
 		n = 0;
 		while (find[n] == str[i + n] && (i + n) < len)

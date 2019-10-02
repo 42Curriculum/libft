@@ -6,14 +6,14 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:37:26 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/18 17:37:30 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/01 15:28:12 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_atoi(char *str)
 {
-	int result;
-	int sign;
+	long long result;
+	long long sign;
 	int i;
 
 	result = 0;
@@ -29,7 +29,7 @@ int		ft_atoi(char *str)
 	while (str[i] && (str[i] >= '0') && (str[i] <= '9'))
 	{
 		result = result * 10;
-		result += (int)str[i] - '0';
+		result += (long)str[i] - '0';
 		i++;
 	}
 	if (sign == 1)
