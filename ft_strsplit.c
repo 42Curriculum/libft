@@ -6,12 +6,19 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 09:51:09 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/10/01 11:40:22 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/02 10:58:26 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+
+int		norm_wont_get_me(int count, char **str, const char *s, int i)
+{
+	str[i] = ft_strnew(count);
+	str[i++] = ft_strsub(s - count, 0, count);
+	return (i);
+}
 
 char	**ft_strsplit(const char *s, char c)
 {
@@ -20,6 +27,8 @@ char	**ft_strsplit(const char *s, char c)
 	int		count;
 
 	i = 0;
+	if (!s || !c)
+		return (NULL);
 	if (!(str = (char **)malloc((ft_ctwords((char *)s, c) + 1) * sizeof(*str))))
 		return (NULL);
 	while (*s)
@@ -31,10 +40,7 @@ char	**ft_strsplit(const char *s, char c)
 			count++;
 		}
 		if (count > 0)
-		{
-			str[i] = ft_strnew(count);
-			str[i++] = ft_strsub(s - count, 0, count);
-		}
+			i = norm_wont_get_me(count, str, s, i);
 		while (*s == c && *s)
 			s++;
 	}

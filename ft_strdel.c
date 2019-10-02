@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 21:05:39 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/10/01 18:49:36 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/02 10:51:01 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_strdel(char **as)
 {
-	ft_memdel((void **)as);
-	*as = NULL;
+	if (as && *as)
+	{
+		ft_memdel((void **)as);
+		*as = NULL;
+	}
 }
