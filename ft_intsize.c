@@ -6,19 +6,18 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 11:47:38 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/22 11:52:04 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/01 20:06:26 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_intsize(unsigned int nb)
+unsigned int	ft_intsize(long long nb)
 {
-	unsigned int	size;
-
-	size = 0;
-	while (nb >= 10)
-	{
-		nb /= 10;
-		++size;
-	}
-	return (size + 1);
+    unsigned int    size;
+    size = 0;
+    while (nb > 0)
+    {
+        ++size;
+        nb /= 10;
+    }
+    return (size);
 }

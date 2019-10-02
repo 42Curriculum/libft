@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 12:32:15 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/09/23 13:30:20 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/01 19:22:40 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-int					ft_intsize(unsigned int nb);
+unsigned int		ft_intsize(int nb);
 void				ft_print2d(char **str, char c);
 int					ft_ctwords(const char *s, char c);
 void				ft_lstappend(t_list *lst, t_list *elem);
