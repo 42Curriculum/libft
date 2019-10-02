@@ -6,21 +6,21 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 09:51:09 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/10/02 10:58:26 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/10/02 11:00:39 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int		norm_wont_get_me(int count, char **str, const char *s, int i)
+static int		norm_wont_get_me(int count, char **str, const char *s, int i)
 {
 	str[i] = ft_strnew(count);
 	str[i++] = ft_strsub(s - count, 0, count);
 	return (i);
 }
 
-char	**ft_strsplit(const char *s, char c)
+char			**ft_strsplit(const char *s, char c)
 {
 	char	**str;
 	int		i;
